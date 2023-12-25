@@ -21,6 +21,7 @@ namespace ServerApp.Services
             return (from employee in this._DbContext.Employees
                     where employee.Name!=null & employee.HoursWorked>0
                     group employee by employee.Name into person
+                    orderby person.Sum(p => p.HoursWorked) descending
                     select new { Name = person.First().Name, TotalHoursWorked = person.Sum(p => p.HoursWorked) }).ToList();
         }
     }
