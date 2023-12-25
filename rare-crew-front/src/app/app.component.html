@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: start;">Name</th>
+      <th>Total Time in Month</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let employee of employeeData">
+      <td style="text-align: start;" [ngStyle]="{'background-color':getColor(employee.totalHoursWorked)}">{{employee.name}}</td>
+      <td [ngStyle]="{'background-color':getColor(employee.totalHoursWorked)}">{{employee.totalHoursWorked}} hrs</td>
+      <td [ngStyle]="{'background-color':getColor(employee.totalHoursWorked)}"><a href="#">Edit</a></td>
+    </tr>
+  </tbody>
+</table>
+<div style="width:800px;"><canvas  id="employees">{{chart}}</canvas></div>
